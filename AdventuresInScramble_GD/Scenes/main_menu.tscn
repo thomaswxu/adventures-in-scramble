@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://3ydw01qej3jc"]
+
+[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_t7tm2"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_vp3di"]
+[ext_resource type="Texture2D" uid="uid://cakcpn4w6ehrv" path="res://Assets/adventures in scramble_title png(1).png" id="2_tjns4"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_vp3di")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -815.5
+offset_top = -494.0
+offset_right = 815.5
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.584314, 0.858824, 0.890196, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.0
+offset_top = -464.0
+offset_right = 399.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tjns4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -175.0
+offset_right = 86.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+icon = ExtResource("1_t7tm2")
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+icon = ExtResource("1_t7tm2")
+expand_icon = true
