@@ -40,8 +40,8 @@ func spawn():
 	else:
 		initial_velocity_angle = randf_range(-PI / 2.0, -PI)
 	velocity = LAUNCH_SPEED * Vector2(cos(initial_velocity_angle), sin(initial_velocity_angle))
-	print("Obstacle spawned, velocity = (" + str(velocity[0]) + ", " + str(velocity[1]) + ")")
+	#print("Obstacle spawned, velocity = (" + str(velocity[0]) + ", " + str(velocity[1]) + ")")
 
 func _on_body_entered(body):
 	if "Player" in body.name:
-		print("player entered" + name)
+		print("Player entered/touched obstacle: " + name)
