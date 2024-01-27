@@ -45,3 +45,4 @@ func spawn():
 func _on_body_entered(body):
 	if "Player" in body.name:
 		print("Player entered/touched obstacle: " + name)
+		player.handle_obstacle_hit()

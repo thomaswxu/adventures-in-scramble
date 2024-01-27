@@ -32,3 +32,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+# What to do when hit by an obstacle
+func handle_obstacle_hit():
+	lives_left -= 1
+	if lives_left == 0:
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
