@@ -89,3 +89,7 @@ offset_bottom = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(-0.5, -1674.5)
 shape = SubResource("RectangleShape2D_62kl7")
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
