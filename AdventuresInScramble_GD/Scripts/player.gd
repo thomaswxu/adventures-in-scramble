@@ -10,13 +10,13 @@ const FAST_FALL_VELOCITY = 2000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # 980, dir (0, 1)
 
 var lives_left = STARTING_LIVES
-var lives_interface
+var interface_node
 var lives_interface_label
 
 func _ready():
-	lives_interface = get_parent().get_node("Interface")
+	interface_node = get_parent().get_node("Interface")
 	lives_interface_label = \
-		lives_interface.get_node("LivesPanelContainer").get_node("MarginContainer") \
+		interface_node.get_node("LivesPanelContainer").get_node("MarginContainer") \
 			.get_node("GridContainer").get_node("LivesLabel")
 		
 func _physics_process(delta):

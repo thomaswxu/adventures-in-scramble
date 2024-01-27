@@ -4,7 +4,7 @@ const FALL_GRAVITY = 1000
 const LAUNCH_SPEED = 1000
 const KILL_HEIGHT = 1000
 
-var player = null
+var player
 var velocity = Vector2(0.0, 0.0)
 
 # Called when the node enters the scene tree for the first time.
