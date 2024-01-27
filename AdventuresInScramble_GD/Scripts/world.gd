@@ -8,6 +8,10 @@ var obstacle_scene = preload("res://Scenes/obstacle.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	
+	# Set initial state of interface elements
+	$Interface/LivesPanelContainer/MarginContainer/GridContainer/LivesLabel.text = str($Player.lives_left)
+	
 	$ObstacleSpawnTimer.wait_time = get_obstacle_spawn_timeout()
 	$ObstacleSpawnTimer.start()
 

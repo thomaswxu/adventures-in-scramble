@@ -95,33 +95,33 @@ shape = SubResource("RectangleShape2D_62kl7")
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="LivesPanelContainer" type="PanelContainer" parent="Interface"]
 offset_left = 18.0
 offset_top = 20.0
-offset_right = 198.0
+offset_right = 139.0
 offset_bottom = 109.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Interface/LivesPanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Interface/LivesPanelContainer/MarginContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+[node name="LivesIcon" type="TextureRect" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("2_8tuhx")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+[node name="LivesLabel" type="Label" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "123"
+text = "x"
 label_settings = SubResource("LabelSettings_vdl4e")
 horizontal_alignment = 1
 vertical_alignment = 1

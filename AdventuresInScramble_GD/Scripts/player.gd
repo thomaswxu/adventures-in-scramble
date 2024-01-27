@@ -10,7 +10,15 @@ const FAST_FALL_VELOCITY = 2000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # 980, dir (0, 1)
 
 var lives_left = STARTING_LIVES
+var lives_interface
+var lives_interface_label
 
+func _ready():
+	lives_interface = get_parent().get_node("Interface")
+	lives_interface_label = \
+		lives_interface.get_node("LivesPanelContainer").get_node("MarginContainer") \
+			.get_node("GridContainer").get_node("LivesLabel")
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -36,5 +44,6 @@ func _physics_process(delta):
 # What to do when hit by an obstacle
 func handle_obstacle_hit():
 	lives_left -= 1
+	lives_interface_label.text = str(lives_left)
 	if lives_left == 0:
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		get_tree().change_scene_to_file.bind("res://Scenes/game_over.tscn").call_deferred()
