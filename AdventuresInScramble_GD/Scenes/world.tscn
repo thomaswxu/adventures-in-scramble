@@ -1,40 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhr2q5nsxc61c"]
+[gd_scene load_steps=9 format=3 uid="uid://dhr2q5nsxc61c"]
 
 [ext_resource type="PackedScene" uid="uid://c7qmffwt3wwoc" path="res://Scenes/player.tscn" id="1_qg0nq"]
 [ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="2_8tuhx"]
+[ext_resource type="PackedScene" uid="uid://bfpt2vyrkk6m0" path="res://Scenes/obstacle.tscn" id="3_hsknj"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gw66k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcoj7"]
 size = Vector2(691, 37)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ief5p"]
+size = Vector2(466.875, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t755"]
+size = Vector2(1679, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62kl7"]
+size = Vector2(57, 3349)
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_qg0nq")]
 position = Vector2(422, 484)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(4, 10)
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(616, 562)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(433.188, 548.438)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+position = Vector2(0.1875, -5.5625)
 scale = Vector2(690.375, -38.875)
 mesh = SubResource("QuadMesh_gw66k")
 texture = ExtResource("2_8tuhx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(433.375, 548.875)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0.374512, -5.12549)
 shape = SubResource("RectangleShape2D_pcoj7")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(772, -61)
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(1196, 448)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2"]
-position = Vector2(433.188, 548.438)
-scale = Vector2(690.375, -38.875)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+position = Vector2(113.687, 6.4375)
+scale = Vector2(467.375, -38.875)
 mesh = SubResource("QuadMesh_gw66k")
 texture = ExtResource("2_8tuhx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(433.375, 548.875)
-shape = SubResource("RectangleShape2D_pcoj7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(114.437, 6.87451)
+shape = SubResource("RectangleShape2D_ief5p")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(837, 665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_8t755")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -839.0
+offset_top = -21.0
+offset_right = 843.0
+offset_bottom = 36.0
+color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-30, 703)
+
+[node name="ColorRect" type="ColorRect" parent="LeftWall"]
+offset_left = -27.0
+offset_top = -3350.0
+offset_right = 28.0
+offset_bottom = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-0.5, -1674.5)
+shape = SubResource("RectangleShape2D_62kl7")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1709, 698)
+
+[node name="ColorRect" type="ColorRect" parent="RightWall"]
+offset_left = -27.0
+offset_top = -3350.0
+offset_right = 28.0
+offset_bottom = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-0.5, -1674.5)
+shape = SubResource("RectangleShape2D_62kl7")
+
+[node name="Obstacle" parent="." instance=ExtResource("3_hsknj")]
+position = Vector2(1465, 393)
