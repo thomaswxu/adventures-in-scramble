@@ -4,7 +4,17 @@ const POT_HEIGHT = 1000
 const MIN_OBSTACLE_SPAWN_DELAY_s = 0.5
 const MAX_OBSTACLE_SPAWN_DELAY_s = 2.0
 
+const PLATFORM_CENTER_MIN_X = 0
+const PLATFORM_CENTER_MAX_X = 1500 # 1675
+const PLATFORM_MAX_ROT_rad = 0.2
+const PLATFORM_MAX_X_SCALE = 7
+const PLATFORM_MIN_X_SCALE = 1
+const PLATFORM_MAX_Y_INTERVAL = 100
+const PLATFORM_MIN_Y_INTERVAL = 80
+const RANDOM_PLAT_START_HEIGHT = 400
+
 var obstacle_scene = preload("res://Scenes/obstacle.tscn")
+var random_platform_scene = preload("res://Scenes/random_platform.tscn")
 
 var distance_to_top_label
 var player
@@ -22,6 +32,8 @@ func _ready():
 	$ObstacleSpawnTimer.start()
 	
 	player = $Player
+	
+	spawn_platforms()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,3 +56,19 @@ func get_obstacle_spawn_timeout() -> float:
 # Update the "distance to top" UI label
 func update_distance_to_top():
 	distance_to_top_label.text = str(int(POT_HEIGHT + player.position.y))
+
+# Spawn random platforms all the way to the top
+func spawn_platforms():
+	var platform_y = RANDOM_PLAT_START_HEIGHT
+	while platform_y > -POT_HEIGHT:
+		var platform_instance = random_platform_scene.instantiate()
+
+		platform_instance.scale.x = randf_range(PLATFORM_MIN_X_SCALE, PLATFORM_MAX_X_SCALE)
+		platform_instance.rotation = randf_range(-PLATFORM_MAX_ROT_rad, PLATFORM_MAX_ROT_rad)
+		
+		var platform_x = randf_range(PLATFORM_CENTER_MIN_X, PLATFORM_CENTER_MAX_X)
+		platform_instance.position = Vector2(platform_x, platform_y)
+		
+		add_child(platform_instance)
+		
+		platform_y -= randf_range(PLATFORM_MIN_Y_INTERVAL, PLATFORM_MAX_Y_INTERVAL)
