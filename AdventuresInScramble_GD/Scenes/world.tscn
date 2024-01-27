@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhr2q5nsxc61c"]
 
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_opuo8"]
 [ext_resource type="PackedScene" uid="uid://c7qmffwt3wwoc" path="res://Scenes/player.tscn" id="1_qg0nq"]
 [ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="2_8tuhx"]
-[ext_resource type="PackedScene" uid="uid://bfpt2vyrkk6m0" path="res://Scenes/obstacle.tscn" id="3_hsknj"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gw66k"]
 
@@ -19,6 +19,7 @@ size = Vector2(1679, 48)
 size = Vector2(57, 3349)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_opuo8")
 
 [node name="Player" parent="." instance=ExtResource("1_qg0nq")]
 position = Vector2(422, 484)
@@ -88,6 +89,3 @@ offset_bottom = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(-0.5, -1674.5)
 shape = SubResource("RectangleShape2D_62kl7")
-
-[node name="Obstacle" parent="." instance=ExtResource("3_hsknj")]
-position = Vector2(1465, 393)
