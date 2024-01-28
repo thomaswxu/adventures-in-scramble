@@ -9,8 +9,8 @@ const PLATFORM_CENTER_MAX_X = 1500 # 1675
 const PLATFORM_MAX_ROT_rad = 0.2
 const PLATFORM_MAX_X_SCALE = 7
 const PLATFORM_MIN_X_SCALE = 1
-const PLATFORM_MAX_Y_INTERVAL = 100
-const PLATFORM_MIN_Y_INTERVAL = 80
+const PLATFORM_MAX_Y_INTERVAL = 140
+const PLATFORM_MIN_Y_INTERVAL = 100
 const RANDOM_PLAT_START_HEIGHT = 400
 
 var obstacle_scene = preload("res://Scenes/obstacle.tscn")
@@ -22,16 +22,15 @@ var player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	player = $Player
 	
 	# Set initial state of interface elements
-	$Interface/LivesPanelContainer/MarginContainer/GridContainer/LivesLabel.text = str($Player.lives_left)
+	$Interface/LivesPanelContainer/MarginContainer/GridContainer/LivesLabel.text = str(player.lives_left)
 	distance_to_top_label = $Interface/DistancePanelContainer/MarginContainer/GridContainer/DistLabel
 	
 	# Set up obstacle spawn timer
 	$ObstacleSpawnTimer.wait_time = get_obstacle_spawn_timeout()
 	$ObstacleSpawnTimer.start()
-	
-	player = $Player
 	
 	spawn_platforms()
 
@@ -39,6 +38,8 @@ func _ready():
 func _process(delta):
 	# Update interface elements
 	update_distance_to_top()
+	if player.position.y < -POT_HEIGHT:
+		get_tree().change_scene_to_file.bind("res://Scenes/boss1_intro.tscn").call_deferred()
 
 func spawn_obstacle():
 	var obstacle_instance = obstacle_scene.instantiate()

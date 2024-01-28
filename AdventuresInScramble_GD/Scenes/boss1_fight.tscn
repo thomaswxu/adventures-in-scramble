@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://t5bpdqaxd3gd"]
+
+[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_1836v"]
+[ext_resource type="Script" path="res://Scripts/boss1_fight.gd" id="1_fxalm"]
+[ext_resource type="PackedScene" uid="uid://c7qmffwt3wwoc" path="res://Scenes/player.tscn" id="2_4r0gb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30d2j"]
+size = Vector2(13591, 81)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lcbay"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_cq3md"]
+font_size = 30
+font_color = Color(0, 0.815686, 0.968627, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdevh"]
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0.643137, 0.870588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fetbn"]
+font_size = 30
+outline_size = 2
+outline_color = Color(0, 0.643137, 0.870588, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jl18"]
+size = Vector2(70, 733.5)
+
+[node name="Boss1_Fight" type="Node2D"]
+script = ExtResource("1_fxalm")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(636, 672)
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -675.0
+offset_top = 76.0
+offset_right = -310.0
+offset_bottom = 118.0
+scale = Vector2(37.1159, 1.93815)
+color = Color(0.662745, 0.309804, 0.172549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(6120.5, 114.5)
+shape = SubResource("RectangleShape2D_30d2j")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="LivesPanelContainer" type="PanelContainer" parent="Interface"]
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 139.0
+offset_bottom = 109.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/LivesPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Interface/LivesPanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="LivesIcon" type="TextureRect" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_1836v")
+expand_mode = 3
+
+[node name="LivesLabel" type="Label" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "x"
+label_settings = SubResource("LabelSettings_lcbay")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DistancePanelContainer" type="PanelContainer" parent="Interface"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -347.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/DistancePanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Interface/DistancePanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="DistToTop" type="Label" parent="Interface/DistancePanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Dist to Plate: "
+label_settings = SubResource("LabelSettings_cq3md")
+
+[node name="DistLabel" type="Label" parent="Interface/DistancePanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "123x"
+label_settings = SubResource("LabelSettings_sdevh")
+horizontal_alignment = 2
+
+[node name="mm" type="Label" parent="Interface/DistancePanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "mm"
+label_settings = SubResource("LabelSettings_fetbn")
+
+[node name="Player" parent="." instance=ExtResource("2_4r0gb")]
+position = Vector2(214, 668)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="LeftWall"]
+offset_left = -36.0
+offset_top = 38.0
+offset_right = 36.0
+offset_bottom = 769.0
+color = Color(0.662745, 0.309804, 0.172549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-1, 404.25)
+shape = SubResource("RectangleShape2D_4jl18")
