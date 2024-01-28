@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://3ydw01qej3jc"]
+[gd_scene load_steps=6 format=3 uid="uid://3ydw01qej3jc"]
 
-[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_t7tm2"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_vp3di"]
 [ext_resource type="Texture2D" uid="uid://cakcpn4w6ehrv" path="res://Assets/adventures in scramble_title png(1).png" id="2_tjns4"]
+[ext_resource type="Texture2D" uid="uid://daaoebiu1jbqu" path="res://Assets/shelldon_main.png" id="3_vvg7j"]
+[ext_resource type="Texture2D" uid="uid://dnb2vmq6delit" path="res://Assets/shelldon_death 2.png" id="4_o2nya"]
+[ext_resource type="AudioStream" uid="uid://bgbnyvvcie2cy" path="res://Assets/Audio/crack_sound.mp3" id="5_a22od"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_vp3di")
@@ -64,23 +66,42 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "IT'S EGGIN TIME"
-icon = ExtResource("1_t7tm2")
+icon = ExtResource("3_vvg7j")
 expand_icon = true
 
 [node name="HowToPlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "HOW TO EGG"
-icon = ExtResource("1_t7tm2")
+icon = ExtResource("3_vvg7j")
 expand_icon = true
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "QUIT"
-icon = ExtResource("1_t7tm2")
+text = "I'm vegan :/"
+icon = ExtResource("4_o2nya")
 expand_icon = true
+
+[node name="CreditsButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -63.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "CREGGDITS"
+icon = ExtResource("3_vvg7j")
+expand_icon = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a22od")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

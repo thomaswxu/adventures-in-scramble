@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4by8bha2a582"]
+[gd_scene load_steps=6 format=3 uid="uid://d4by8bha2a582"]
 
 [ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_akjd3"]
+[ext_resource type="AudioStream" uid="uid://bgbnyvvcie2cy" path="res://Assets/Audio/crack_sound.mp3" id="2_jcd83"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mtt2q"]
 font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_trt4u"]
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_vqu1u"]
 line_spacing = 0.0
@@ -50,7 +54,22 @@ text = "HOW TO PLAY"
 label_settings = SubResource("LabelSettings_mtt2q")
 horizontal_alignment = 1
 
-[node name="ControlsText" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ObjectiveText" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "OBJECTIVE:
+Eggscape!!
+(Dodge the obstacles)"
+label_settings = SubResource("LabelSettings_trt4u")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="ControlsText" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 2.94
 text = "MOVEMENT:
@@ -73,5 +92,8 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "[BACK]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jcd83")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

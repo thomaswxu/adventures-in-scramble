@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Constants
-const STARTING_LIVES = 3
+const STARTING_LIVES = 5
 const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
 const FAST_FALL_VELOCITY = 2000

@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://cme1user4xffl"]
+
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="1_a2si6"]
+[ext_resource type="AudioStream" uid="uid://bgbnyvvcie2cy" path="res://Assets/Audio/crack_sound.mp3" id="2_sihjj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqjpe"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4vpj"]
+line_spacing = 0.0
+font_size = 35
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_a2si6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -815.5
+offset_top = -494.0
+offset_right = 815.5
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.584314, 0.858824, 0.890196, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -701.0
+offset_top = -381.0
+offset_right = 702.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TitleLabel" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_wqjpe")
+horizontal_alignment = 1
+
+[node name="CreditsText" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 2.94
+text = "Art, Writing, QA, Project Management, Design
+Clover Chau
+
+Programming, Design, Egg
+Thomas Xu
+
+
+
+"
+label_settings = SubResource("LabelSettings_s4vpj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "[BACK]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sihjj")
+
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
