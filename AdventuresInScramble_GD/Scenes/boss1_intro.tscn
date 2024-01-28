@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvfnw5j6whygu"]
+[gd_scene load_steps=5 format=3 uid="uid://cvfnw5j6whygu"]
 
-[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_ljh5a"]
 [ext_resource type="Script" path="res://Scripts/boss1_intro.gd" id="1_pagk1"]
+[ext_resource type="Texture2D" uid="uid://jtbi8rwvvkjy" path="res://Assets/eggs benedict_main.png" id="2_ddqqq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtvmk"]
+font_size = 49
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_7marp"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+outline_size = 16
+shadow_size = 29
+shadow_color = Color(1, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pagk1")
@@ -21,7 +34,7 @@ offset_bottom = 483.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-texture = ExtResource("1_ljh5a")
+texture = ExtResource("2_ddqqq")
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 7
@@ -36,6 +49,38 @@ offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "Get to the plate!"
+text = "Get to the plate!!"
+
+[node name="BOSS" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -367.0
+offset_right = 62.0
+offset_bottom = -299.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BOSS"
+label_settings = SubResource("LabelSettings_rtvmk")
+horizontal_alignment = 1
+
+[node name="BOSS_NAME" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -319.0
+offset_right = 405.0
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EGGUS BENEDICTUS"
+label_settings = SubResource("LabelSettings_7marp")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -3,6 +3,8 @@ extends Area2D
 const FALL_GRAVITY = 1000
 const LAUNCH_SPEED = 1000
 const KILL_HEIGHT = 1000
+const MIN_SCALE = 0.4
+const MAX_SCALE = 1.0
 
 var player
 var velocity = Vector2(0.0, 0.0)
@@ -25,6 +27,15 @@ func _process(delta):
 # - Position relative to the player
 # - Initial velocity
 func spawn():
+	# Choose random sprite
+	var num_sprite_variants = 4
+	var chosen_sprite_index = randi_range(1, num_sprite_variants)
+	$Sprite2D.texture = load("res://Assets/Obstacles/mushrooms_" + str(chosen_sprite_index) + ".png")
+	
+	# Randomize scale
+	var rand_scale = randf_range(MIN_SCALE, MAX_SCALE)
+	scale = rand_scale * Vector2(1, 1)
+	
 	# Randomize starting position offsets
 	var spawn_on_left = randi_range(0, 1)
 	var x_offset = 1000

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://sbi0lg8qlgti"]
+[gd_scene load_steps=3 format=3 uid="uid://sbi0lg8qlgti"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_51ysn"]
+[ext_resource type="Texture2D" uid="uid://kl1so3nvbl4e" path="res://Assets/shelldon_death 1.png" id="2_flo3s"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_51ysn")
@@ -19,16 +20,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.8, 0.309804, 0.290196, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -11.5
-offset_right = 57.0
-offset_bottom = 11.5
+offset_left = -410.0
+offset_top = -379.0
+offset_right = 348.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_flo3s")
+expand_mode = 1
+
+[node name="RIP Shelldon" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = 10.0
+offset_right = 176.5
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50

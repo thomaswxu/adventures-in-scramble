@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://t5bpdqaxd3gd"]
+[gd_scene load_steps=11 format=3 uid="uid://t5bpdqaxd3gd"]
 
 [ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_1836v"]
 [ext_resource type="Script" path="res://Scripts/boss1_fight.gd" id="1_fxalm"]
 [ext_resource type="PackedScene" uid="uid://c7qmffwt3wwoc" path="res://Scenes/player.tscn" id="2_4r0gb"]
+[ext_resource type="PackedScene" uid="uid://c8p61btekgxu8" path="res://Scenes/boss1.tscn" id="4_7d2e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30d2j"]
 size = Vector2(13591, 81)
@@ -131,4 +132,11 @@ shape = SubResource("RectangleShape2D_4jl18")
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="."]
 
+[node name="Boss1" parent="." instance=ExtResource("4_7d2e3")]
+position = Vector2(813, 176)
+
+[node name="BossAttackTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
+[connection signal="timeout" from="BossAttackTimer" to="." method="_on_boss_attack_timer_timeout"]
