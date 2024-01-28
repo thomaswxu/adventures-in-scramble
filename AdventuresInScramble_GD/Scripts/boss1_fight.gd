@@ -1,6 +1,6 @@
 extends Node2D
 
-const PLATE_X = 13000
+const PLATE_X = 10000
 
 const MIN_OBSTACLE_SPAWN_DELAY_s = 0.3
 const MAX_OBSTACLE_SPAWN_DELAY_s = 0.6
@@ -32,6 +32,8 @@ func _ready():
 func _process(delta):
 	update_distance_to_plate()
 	boss.set_return_point(player.position + BOSS_PLAYER_OFFSET)
+	if player.position.x > PLATE_X:
+		get_tree().change_scene_to_file.bind("res://Scenes/ending.tscn").call_deferred()
 
 # Update the "distance to plate" UI label
 func update_distance_to_plate():
