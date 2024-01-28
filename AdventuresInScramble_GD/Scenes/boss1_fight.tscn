@@ -97,7 +97,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 columns = 3
 
-[node name="DistToTop" type="Label" parent="Interface/DistancePanelContainer/MarginContainer/GridContainer"]
+[node name="DistToPlate" type="Label" parent="Interface/DistancePanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 text = "Dist to Plate: "
 label_settings = SubResource("LabelSettings_cq3md")
@@ -128,3 +128,7 @@ color = Color(0.662745, 0.309804, 0.172549, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
 position = Vector2(-1, 404.25)
 shape = SubResource("RectangleShape2D_4jl18")
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
