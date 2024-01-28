@@ -1,5 +1,5 @@
 # Adventures in Scramble
-Small game, originally for Global Game Jam 2024.
+Small game, originally for Global Game Jam 2024. Made in collaboration with ctchau.
 
 See game webpage for more details: https://globalgamejam.org/games/2024/adventures-scramble-2
 
