@@ -1,7 +1,7 @@
 # Adventures in Scramble
 Small game, originally for Global Game Jam 2024.
 
-Art by ctwchau
+See game webpage for more details: https://globalgamejam.org/games/2024/adventures-scramble-2
 
 ## Software Used
 Game Engine: Godot 4.2.1  
