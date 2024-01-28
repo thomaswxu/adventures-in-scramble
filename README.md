@@ -4,7 +4,7 @@ Small game, originally for Global Game Jam 2024.
 Art by ctwchau
 
 ## Software Used
-Game Engine: Godot 4.2.1
+Game Engine: Godot 4.2.1  
 Art: Adobe Photoshop
 
 ## Audio Credits
