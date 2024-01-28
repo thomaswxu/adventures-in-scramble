@@ -2,8 +2,8 @@ extends Node2D
 
 const PLATE_X = 13000
 
-const MIN_OBSTACLE_SPAWN_DELAY_s = 0.1
-const MAX_OBSTACLE_SPAWN_DELAY_s = 0.5
+const MIN_OBSTACLE_SPAWN_DELAY_s = 0.3
+const MAX_OBSTACLE_SPAWN_DELAY_s = 0.6
 const BOSS_PLAYER_OFFSET = Vector2(0, -500)
 
 var player
@@ -49,4 +49,4 @@ func spawn_obstacle():
 	add_child(obstacle_instance)
 
 func _on_boss_attack_timer_timeout():
-	boss.attack_down()
+	boss.start_attack()

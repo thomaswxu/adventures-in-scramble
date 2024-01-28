@@ -136,7 +136,7 @@ shape = SubResource("RectangleShape2D_4jl18")
 position = Vector2(813, 176)
 
 [node name="BossAttackTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
 [connection signal="timeout" from="BossAttackTimer" to="." method="_on_boss_attack_timer_timeout"]
