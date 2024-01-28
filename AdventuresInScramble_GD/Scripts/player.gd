@@ -52,5 +52,6 @@ func _physics_process(delta):
 func handle_obstacle_hit():
 	lives_left -= 1
 	lives_interface_label.text = str(lives_left)
+	$CrackSoundPlayer.playing = true
 	if lives_left == 0:
 		get_tree().change_scene_to_file.bind("res://Scenes/game_over.tscn").call_deferred()

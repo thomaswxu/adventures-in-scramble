@@ -20,6 +20,8 @@ func _ready():
 	$Interface/LivesPanelContainer/MarginContainer/GridContainer/LivesLabel.text = str(player.lives_left)
 	distance_to_plate_label = $Interface/DistancePanelContainer/MarginContainer/GridContainer/DistLabel
 	
+	$AudioStreamPlayer.playing = true
+	
 	# Set up obstacle spawn timer
 	$ObstacleSpawnTimer.wait_time = get_obstacle_spawn_timeout()
 	$ObstacleSpawnTimer.start()

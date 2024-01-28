@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7qmffwt3wwoc"]
+[gd_scene load_steps=5 format=3 uid="uid://c7qmffwt3wwoc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qf7w6"]
 [ext_resource type="Texture2D" uid="uid://daaoebiu1jbqu" path="res://Assets/shelldon_main.png" id="2_8tx2t"]
+[ext_resource type="AudioStream" uid="uid://bgbnyvvcie2cy" path="res://Assets/Audio/crack_sound.mp3" id="3_dg1ft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14j04"]
 radius = 28.0
@@ -22,3 +23,6 @@ shape = SubResource("CapsuleShape2D_14j04")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -134)
 zoom = Vector2(0.7, 0.7)
+
+[node name="CrackSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dg1ft")

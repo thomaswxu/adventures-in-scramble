@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://sbi0lg8qlgti"]
+[gd_scene load_steps=4 format=3 uid="uid://sbi0lg8qlgti"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_51ysn"]
 [ext_resource type="Texture2D" uid="uid://kl1so3nvbl4e" path="res://Assets/shelldon_death 1.png" id="2_flo3s"]
+[ext_resource type="AudioStream" uid="uid://cw1jorob0p0h6" path="res://Assets/Audio/sad_trombone.mp3" id="3_0mv7q"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_51ysn")
@@ -75,6 +76,9 @@ text = "CRACK ON?"
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0mv7q")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
