@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0om3k8ny2xjs"]
 
-[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="1_6c4v8"]
+[ext_resource type="Texture2D" uid="uid://bmy417180ix5g" path="res://Assets/broccolini.png" id="1_qiob2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1ls3v"]
 
@@ -11,10 +11,10 @@ size = Vector2(80.5, 12)
 scale = Vector2(3.16, 3.026)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-1, 4.76837e-07)
-scale = Vector2(81, -11.5)
+position = Vector2(-0.791138, 0.495704)
+scale = Vector2(83.2278, -19.4977)
 mesh = SubResource("QuadMesh_1ls3v")
-texture = ExtResource("1_6c4v8")
+texture = ExtResource("1_qiob2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, 0)

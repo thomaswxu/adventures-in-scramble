@@ -18,4 +18,4 @@ func _on_button_pressed():
 	if current_image <= NUM_IMAGES:
 		$TextureRect.texture = load("res://Assets/outro_Artboard (" + str(current_image) + ").png")
 	else:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/victory.tscn")

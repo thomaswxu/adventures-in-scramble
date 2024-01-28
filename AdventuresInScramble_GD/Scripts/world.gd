@@ -1,6 +1,6 @@
 extends Node2D
 
-const POT_HEIGHT = 1000
+const POT_HEIGHT = 2000
 const MIN_OBSTACLE_SPAWN_DELAY_s = 0.2
 const MAX_OBSTACLE_SPAWN_DELAY_s = 0.8
 

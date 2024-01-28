@@ -2,8 +2,8 @@ extends Node2D
 
 const PLATE_X = 10000
 
-const MIN_OBSTACLE_SPAWN_DELAY_s = 0.3
-const MAX_OBSTACLE_SPAWN_DELAY_s = 0.6
+const MIN_OBSTACLE_SPAWN_DELAY_s = 0.25
+const MAX_OBSTACLE_SPAWN_DELAY_s = 0.55
 const BOSS_PLAYER_OFFSET = Vector2(0, -500)
 
 var player

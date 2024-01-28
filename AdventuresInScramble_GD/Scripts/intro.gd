@@ -15,5 +15,7 @@ func _on_button_pressed():
 	current_image += 1
 	if current_image <= NUM_IMAGES:
 		$TextureRect.texture = load("res://Assets/Intro" + str(current_image) + ".png")
+		if current_image == NUM_IMAGES:
+			$Button.text = "IT'S EGGIN TIME!!"
 	else:
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")

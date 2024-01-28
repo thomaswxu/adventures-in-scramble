@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhr2q5nsxc61c"]
+[gd_scene load_steps=16 format=3 uid="uid://dhr2q5nsxc61c"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_opuo8"]
 [ext_resource type="PackedScene" uid="uid://c7qmffwt3wwoc" path="res://Scenes/player.tscn" id="1_qg0nq"]
-[ext_resource type="Texture2D" uid="uid://ch7irsohocc3k" path="res://icon.svg" id="2_8tuhx"]
+[ext_resource type="Texture2D" uid="uid://wvqvgif4isgc" path="res://Assets/kitchen.jpg" id="2_oss52"]
+[ext_resource type="Texture2D" uid="uid://bmy417180ix5g" path="res://Assets/broccolini.png" id="3_eu2gj"]
+[ext_resource type="Texture2D" uid="uid://dghu5e0na5ety" path="res://Assets/heart.png" id="4_0knej"]
 [ext_resource type="AudioStream" uid="uid://cnrdcvfvtgloh" path="res://Assets/Audio/main_music.ogg" id="4_owrhn"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gw66k"]
@@ -17,7 +19,7 @@ size = Vector2(466.875, 37)
 size = Vector2(1679, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62kl7"]
-size = Vector2(57, 3349)
+size = Vector2(57, 3013)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vdl4e"]
 font_size = 50
@@ -39,6 +41,14 @@ outline_color = Color(0, 0.643137, 0.870588, 1)
 [node name="World" type="Node2D"]
 script = ExtResource("1_opuo8")
 
+[node name="BG" type="TextureRect" parent="."]
+offset_left = -696.0
+offset_top = -2926.0
+offset_right = 2439.0
+offset_bottom = 1241.0
+texture = ExtResource("2_oss52")
+expand_mode = 1
+
 [node name="Player" parent="." instance=ExtResource("1_qg0nq")]
 position = Vector2(422, 484)
 
@@ -46,10 +56,10 @@ position = Vector2(422, 484)
 position = Vector2(616, 562)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StartPlatform"]
-position = Vector2(0.1875, -5.5625)
-scale = Vector2(690.375, -38.875)
+position = Vector2(5.99996, -4)
+scale = Vector2(714, -60)
 mesh = SubResource("QuadMesh_gw66k")
-texture = ExtResource("2_8tuhx")
+texture = ExtResource("3_eu2gj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlatform"]
 position = Vector2(0.374512, -5.12549)
@@ -59,10 +69,10 @@ shape = SubResource("RectangleShape2D_pcoj7")
 position = Vector2(1196, 448)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StartPlatform2"]
-position = Vector2(113.687, 6.4375)
-scale = Vector2(467.375, -38.875)
+position = Vector2(118.5, 7.50001)
+scale = Vector2(481, -59)
 mesh = SubResource("QuadMesh_gw66k")
-texture = ExtResource("2_8tuhx")
+texture = ExtResource("3_eu2gj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlatform2"]
 position = Vector2(114.437, 6.87451)
@@ -71,10 +81,6 @@ shape = SubResource("RectangleShape2D_ief5p")
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(837, 665)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-1, 7)
-shape = SubResource("RectangleShape2D_8t755")
-
 [node name="ColorRect" type="ColorRect" parent="Floor"]
 offset_left = -839.0
 offset_top = -21.0
@@ -82,17 +88,22 @@ offset_right = 843.0
 offset_bottom = 36.0
 color = Color(0.784314, 0.784314, 0.784314, 1)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_8t755")
+
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(-30, 703)
 
 [node name="ColorRect" type="ColorRect" parent="LeftWall"]
 offset_left = -27.0
-offset_top = -3350.0
+offset_top = -2720.0
 offset_right = 28.0
 offset_bottom = 1.0
+color = Color(0.827451, 0.827451, 0.827451, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-0.5, -1674.5)
+position = Vector2(-0.5, -1384)
 shape = SubResource("RectangleShape2D_62kl7")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
@@ -100,12 +111,13 @@ position = Vector2(1709, 698)
 
 [node name="ColorRect" type="ColorRect" parent="RightWall"]
 offset_left = -27.0
-offset_top = -3350.0
+offset_top = -2706.0
 offset_right = 28.0
 offset_bottom = 1.0
+color = Color(0.823529, 0.823529, 0.823529, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(-0.5, -1674.5)
+position = Vector2(-0.5, -1518.5)
 shape = SubResource("RectangleShape2D_62kl7")
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="."]
@@ -131,7 +143,7 @@ columns = 2
 
 [node name="LivesIcon" type="TextureRect" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_8tuhx")
+texture = ExtResource("4_0knej")
 expand_mode = 3
 
 [node name="LivesLabel" type="Label" parent="Interface/LivesPanelContainer/MarginContainer/GridContainer"]
@@ -142,14 +154,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DistancePanelContainer" type="PanelContainer" parent="Interface"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -178.0
-offset_top = 25.0
-offset_right = -24.0
-offset_bottom = 82.0
-grow_horizontal = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -124.0
+offset_right = 164.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/DistancePanelContainer"]
 layout_mode = 2
