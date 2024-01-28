@@ -27,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -396.0
-offset_top = -464.0
-offset_right = 399.0
-offset_bottom = 340.0
+offset_left = -377.0
+offset_top = -504.0
+offset_right = 363.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_tjns4")
@@ -43,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.0
-offset_top = -175.0
-offset_right = 86.0
-offset_bottom = -25.0
+offset_left = -251.0
+offset_top = -219.0
+offset_right = 199.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -63,7 +63,14 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "PLAY"
+text = "IT'S EGGIN TIME"
+icon = ExtResource("1_t7tm2")
+expand_icon = true
+
+[node name="HowToPlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "HOW TO EGG"
 icon = ExtResource("1_t7tm2")
 expand_icon = true
 
@@ -75,4 +82,5 @@ icon = ExtResource("1_t7tm2")
 expand_icon = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

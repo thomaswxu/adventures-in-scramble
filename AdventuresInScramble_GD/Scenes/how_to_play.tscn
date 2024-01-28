@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4by8bha2a582"]
+
+[ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_akjd3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtt2q"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_vqu1u"]
+line_spacing = 0.0
+font_size = 40
+
+[node name="HowToPlay" type="CanvasLayer"]
+script = ExtResource("1_akjd3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -815.5
+offset_top = -494.0
+offset_right = 815.5
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.584314, 0.858824, 0.890196, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -701.0
+offset_top = -381.0
+offset_right = 702.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HowToPlayLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "HOW TO PLAY"
+label_settings = SubResource("LabelSettings_mtt2q")
+horizontal_alignment = 1
+
+[node name="ControlsText" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 2.94
+text = "
+MOVEMENT:
+Left/Right Arrow
+
+JUMP:
+Up Arrow
+
+DOUBLE JUMP:
+Up Arrow in air
+
+"
+label_settings = SubResource("LabelSettings_vqu1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "[BACK]"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
