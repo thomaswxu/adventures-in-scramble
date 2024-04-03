@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 # Constants
-const STARTING_LIVES = 5
+const STARTING_LIVES = 7
 const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
 const FAST_FALL_VELOCITY = 2000
-const NUM_AIR_JUMPS = 1
+const NUM_AIR_JUMPS = 2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # 980, dir (0, 1)

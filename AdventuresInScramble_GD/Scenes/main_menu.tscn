@@ -62,17 +62,17 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="HowToPlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "CLICK ME FIRST"
+icon = ExtResource("3_vvg7j")
+expand_icon = true
+
 [node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "IT'S EGGIN TIME"
-icon = ExtResource("3_vvg7j")
-expand_icon = true
-
-[node name="HowToPlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "HOW TO EGG"
 icon = ExtResource("3_vvg7j")
 expand_icon = true
 
@@ -101,7 +101,7 @@ expand_icon = true
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_a22od")
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

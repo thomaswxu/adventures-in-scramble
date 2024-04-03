@@ -16,7 +16,9 @@ func _on_how_to_play_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/how_to_play.tscn")
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	$SoundPlayer.playing = true
+	#get_tree().quit()
+	pass
 
 func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/credits.tscn")

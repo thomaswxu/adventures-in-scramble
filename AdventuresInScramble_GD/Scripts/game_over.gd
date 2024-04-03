@@ -16,7 +16,8 @@ func _on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	#get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_death_animation_timer_timeout():
 	$TextureRect.texture = load("res://Assets/shelldon_death 2.png")
